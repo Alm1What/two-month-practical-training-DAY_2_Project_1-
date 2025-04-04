@@ -1,5 +1,6 @@
 package org.example.day_2_pratctice_project_one.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -25,6 +26,7 @@ public class Client {
     private Trainer trainer;
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Workout> workouts = new ArrayList<>();
 
     public Client() {

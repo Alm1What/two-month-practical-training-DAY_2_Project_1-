@@ -1,5 +1,6 @@
 package org.example.day_2_pratctice_project_one.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,7 @@ public class Workout {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
+    @JsonBackReference
     private Client client;
 
     public Workout() {
